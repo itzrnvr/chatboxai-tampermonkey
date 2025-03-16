@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Think Collapse Chatbox v5
+// @name         Think Collapse Chatbox
 // @namespace    http://tampermonkey.net/
 // @version      2025-03-16
 // @description  try to take over the world!
