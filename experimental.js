@@ -64,6 +64,10 @@
     // Track if it's first load - everything collapsed by default
     let isFirstLoad = true;
 
+    // Define button text constants with arrows before text
+    const SHOW_TEXT = "↓ Show Thinking Process";
+    const HIDE_TEXT = "↑ Hide Thinking Process";
+
     // Define the toggleThink function and expose it globally
     unsafeWindow.toggleThink = function(id) {
         const thinkContent = document.getElementById(id);
@@ -78,19 +82,19 @@
                     currentExpanded.style.display = "none";
                     const currentButton = currentExpanded.previousElementSibling;
                     if (currentButton) {
-                        currentButton.textContent = "Show Thinking Process";
+                        currentButton.textContent = SHOW_TEXT;
                     }
                 }
             }
 
             // Then expand this section
             thinkContent.style.display = "block";
-            button.textContent = "Hide Thinking Process";
+            button.textContent = HIDE_TEXT;
             unsafeWindow.currentExpandedThinkId = id;
         } else {
             // Collapse this section
             thinkContent.style.display = "none";
-            button.textContent = "Show Thinking Process";
+            button.textContent = SHOW_TEXT;
             if (unsafeWindow.currentExpandedThinkId === id) {
                 unsafeWindow.currentExpandedThinkId = null;
             }
@@ -104,7 +108,7 @@
                 element.style.display = "none";
                 const button = element.previousElementSibling;
                 if (button) {
-                    button.textContent = "Show Thinking Process";
+                    button.textContent = SHOW_TEXT;
                 }
             }
         });
@@ -134,7 +138,7 @@
                         element.style.display = "none";
                         const button = element.previousElementSibling;
                         if (button) {
-                            button.textContent = "Show Thinking Process";
+                            button.textContent = SHOW_TEXT;
                         }
                         unsafeWindow.currentExpandedThinkId = null;
                     }
@@ -156,7 +160,7 @@
             // Set display based on whether this is the latest message AND NOT first load
             // On first load, everything is collapsed
             const displayStyle = (isLatest && !isFirstLoad && !hasCompleteThinkTags) ? "block" : "none";
-            const buttonText = (isLatest && !isFirstLoad && !hasCompleteThinkTags) ? "Hide Thinking Process" : "Show Thinking Process";
+            const buttonText = (isLatest && !isFirstLoad && !hasCompleteThinkTags) ? HIDE_TEXT : SHOW_TEXT;
             
             // Only set as current expanded if it's actually displayed
             if (displayStyle === "block") {
@@ -189,7 +193,7 @@
             // Set display based on whether this is the latest message AND NOT first load
             // On first load, everything is collapsed
             const displayStyle = (isLatest && !isFirstLoad && !hasCompleteThinkTags) ? "block" : "none";
-            const buttonText = (isLatest && !isFirstLoad && !hasCompleteThinkTags) ? "Hide Thinking Process" : "Show Thinking Process";
+            const buttonText = (isLatest && !isFirstLoad && !hasCompleteThinkTags) ? HIDE_TEXT : SHOW_TEXT;
             
             // Only set as current expanded if it's actually displayed
             if (displayStyle === "block") {
@@ -242,7 +246,7 @@
         // Set display based on whether this is the latest message AND NOT first load
         // On first load, everything is collapsed
         const displayStyle = (isLatest && !isFirstLoad) ? "block" : "none";
-        const buttonText = (isLatest && !isFirstLoad) ? "Hide Thinking Process" : "Show Thinking Process";
+        const buttonText = (isLatest && !isFirstLoad) ? HIDE_TEXT : SHOW_TEXT;
 
         // Only set as current expanded if it's actually displayed
         if (displayStyle === "block") {
